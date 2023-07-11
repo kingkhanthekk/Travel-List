@@ -19,8 +19,12 @@ const Logo = () => {
 };
 
 const Form = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className="add-form">
+    <form className="add-form" onSubmit={handleSubmit}>
       <h3>What item/s do you need for your 😍 trip?</h3>
       <select>
         {Array.from({ length: 20 }, (v, i) => i + 1).map((num) => (
@@ -29,6 +33,8 @@ const Form = () => {
           </option>
         ))}
       </select>
+      <input placeholder="Item..."></input>
+      <button>Add</button>
     </form>
   );
 };
@@ -38,7 +44,7 @@ const PackingList = () => {
     <div className="list">
       <ul>
         {initialItems.map((item) => (
-          <ListItem item={item} />
+          <ListItem item={item} key={item.id} />
         ))}
       </ul>
     </div>

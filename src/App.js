@@ -27,6 +27,8 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!description) return;
+
     const newItem = {
       id: initialItems.length + 1,
       description,

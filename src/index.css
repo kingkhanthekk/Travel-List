@@ -92,7 +92,7 @@ input {
 }
 
 .list ul {
-  min-height: 200px;
+  min-height: 100px;
   list-style: none;
   width: 80%;
   overflow: auto;

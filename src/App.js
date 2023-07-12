@@ -61,7 +61,7 @@ const Form = ({ addNewItem }) => {
 
   return (
     <form className="add-form" onSubmit={handleSubmit}>
-      <h3>What item/s do you need for your 😍 trip?</h3>
+      <h3>What item do you need for your 😍 trip?</h3>
       <select
         value={quantity}
         onChange={(e) => setQuantity(Number(e.target.value))}
@@ -132,7 +132,9 @@ const Stats = ({ items }) => {
       <em>
         {percentage === 100
           ? "You have packed everything. Ready to go ✈"
-          : `🧳 You have ${numItems} items on your list, and you packed ${numPacked}
+          : `🧳 You have ${numItems} item${
+              numItems === 1 ? "" : "s"
+            } on your list, and you packed ${numPacked}
         items (${percentage}%)`}
       </em>
     </footer>

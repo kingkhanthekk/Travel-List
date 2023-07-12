@@ -33,7 +33,7 @@ const App = () => {
         onDeleteItem={handleDeleteItem}
         onToggleItem={handleToggleItem}
       />
-      <Stats />
+      <Stats items={items} />
     </div>
   );
 };
@@ -120,10 +120,19 @@ const ListItem = ({ item, onDeleteItem, onToggleItem }) => {
   );
 };
 
-const Stats = () => {
+const Stats = ({ items }) => {
+  const numItems = items.length;
+  const numPacked = items.filter((item) => item.packed).length;
+  const percentage = Math.round((numPacked / numItems) * 100);
+
   return (
     <footer className="stats">
-      <em>🧳 You have X items on your list, and you packed X (X%)</em>
+      <em>
+        {percentage === 100
+          ? "You have packed everything. Ready to go ✈"
+          : `🧳 You have ${numItems} items on your list, and you packed ${numPacked}
+        items (${percentage}%)`}
+      </em>
     </footer>
   );
 };

@@ -95,6 +95,11 @@ const PackingList = ({ items, onDeleteItem, onToggleItem }) => {
         .slice()
         .sort((a, b) => a.description.localeCompare(b.description));
       break;
+    case "packed":
+      sortedItems = items
+        .slice()
+        .sort((a, b) => Number(a.packed) - Number(b.packed));
+      break;
   }
 
   return (
